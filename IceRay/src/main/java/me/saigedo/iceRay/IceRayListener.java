@@ -5,22 +5,21 @@ import com.projectkorra.projectkorra.ability.CoreAbility;
 import com.projectkorra.projectkorra.event.PlayerSwingEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
 public class IceRayListener implements Listener {
 
-    @EventHandler
-    public void onSwing(PlayerSwingEvent event) {
-        Player player = event.getPlayer();
-        BendingPlayer bPlayer = BendingPlayer.getBendingPlayer(player);
+    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+    public void onSwing(final PlayerSwingEvent event) {
+        final Player player = event.getPlayer();
+        final IceRay iceRay = CoreAbility.getAbility(player, IceRay.class);
 
-        if (bPlayer == null) return;
+        if (iceRay == null) return;
+        if (!BendingPlayer.getBendingPlayer(player).getBoundAbilityName().equalsIgnoreCase("FrostBreath")) return;
 
-        if (!bPlayer.getBoundAbilityName().equalsIgnoreCase("FrostBreath")) return;
-
-        IceRay ability = CoreAbility.getAbility(player, IceRay.class);
-        if (ability != null) {
-            ability.setContinueMove(true); // flip your boolean so progress() knows to run
+        if (iceRay.getAbilityState() == IceRay.AbilityState.PREPARED && player.isSneaking()) {
+            iceRay.startAbility();
         }
     }
 }
