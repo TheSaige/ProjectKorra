@@ -400,7 +400,7 @@ public class TerraSense extends EarthAbility implements AddonAbility, PassiveAbi
         ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.Range", 15);
         ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.BlindMultiplier", 3);
         ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.SandMultiplier", 0.4);
-        ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.nonEarthMultiplier", 1;
+        ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.nonEarthMultiplier", 1);
         ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.CanSenseEarthbending", true);
         ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.CanSenseWaves", true);
         ConfigManager.getConfig().addDefault("ExtraAbilities.Hiro3.Earth.TerraSense.SenseOnlyEarthBlocks", false);
